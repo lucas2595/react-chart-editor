@@ -58,7 +58,7 @@ class PlotlyEditor extends Component {
 
   handleEditorUpdateTraces = (update) => {
     for (const key in update) {
-      if (key.substr(key.length - 3) === 'src') {
+      if (key.includes('src') || key === 'x' || key === 'y') {
         const columnId = update[key];
         const data = this.state.dataSources[columnId];
         if (!Array.isArray(data).length || !data.length) {
@@ -70,8 +70,10 @@ class PlotlyEditor extends Component {
 
   handleEditorUpdate(update) {
     this.setState(({plotRevision: x}) => ({plotRevision: x + 1}));
-    if (update && update[0]) {
-      this.handleEditorUpdateTraces(update[0]);
+    if (update) {
+      for (const trace of update) {
+        this.handleEditorUpdateTraces(trace);
+      }
     }
   }
 
