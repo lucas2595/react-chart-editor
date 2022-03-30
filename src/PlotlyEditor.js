@@ -22,25 +22,20 @@ class PlotlyEditor extends Component {
   }
 
   componentDidMount() {
-    this.setChartingDataOptions(['batata', 'col1']); // add the options
-    setTimeout(() => {
-      this.setChartingData({columnName: 'batata', data: [1, 2, 3]});
-      console.log(this.state);
-    }, 2000); // add the batata data
-    setTimeout(() => {
-      this.setState({loading: true});
-    }, 7000); // add set as loading
-    setTimeout(() => {
-      this.setChartingData({columnName: 'col1', data: [45, 55, 50]});
-      this.setState({loading: false});
-      console.log(this.state);
-    }, 10000); // add the col1 data
-    setTimeout(() => {
-      this.setChartingData({columnName: 'col1', data: [99, 88, 77]});
-      this.setState({loading: false});
-      console.log(this.state);
-    }, 20000); // refresh the col1 data
+    this.setChartingDataOptions(['col1', 'col2', 'col3', 'col4', 'col5']); // add the options
   }
+
+  getChartingData = (columnName) => {
+    console.log(columnName);
+    setTimeout(
+      () =>
+        this.setChartingData({
+          columnName,
+          data: [10 * Math.random(), 10 * Math.random(), 10 * Math.random()]
+        }),
+      2000
+    );
+  };
 
   setChartingDataOptions(columnNames) {
     this.setState({
@@ -61,26 +56,23 @@ class PlotlyEditor extends Component {
     }
   }
 
-  handleEditorUpdateTraces({update}) {
-    if (update) {
-      for (const key in update) {
-        if (key.substr(key.length - 3) === 'src') {
-          const columnId = update[key];
-          const data = this.state.dataSources[columnId];
-          if (!Array.isArray(data).length || !data.length) {
-            this.getChartingData(columnId);
-          }
+  handleEditorUpdateTraces = (update) => {
+    for (const key in update) {
+      if (key.substr(key.length - 3) === 'src') {
+        const columnId = update[key];
+        const data = this.state.dataSources[columnId];
+        if (!Array.isArray(data).length || !data.length) {
+          this.getChartingData(columnId);
         }
       }
     }
-  }
+  };
 
-  // handlePlotUpdate(fig, graphDiv) { // now called handleRender
-  //   this.setState(({editorRevision: x}) => ({editorRevision: x + 1, graphDiv}));
-  // }
-
-  handleEditorUpdate() {
+  handleEditorUpdate(update) {
     this.setState(({plotRevision: x}) => ({plotRevision: x + 1}));
+    if (update && update[0]) {
+      this.handleEditorUpdateTraces(update[0]);
+    }
   }
 
   handleRender(fig, graphDiv) {
@@ -103,7 +95,7 @@ class PlotlyEditor extends Component {
             plotly={this.props.plotly}
             // onUpdate={this.props.onUpdate}
             onUpdate={this.handleEditorUpdate.bind(this)}
-            onUpdateTraces={this.handleEditorUpdateTraces.bind(this)}
+            onUpdateTraces={this.handleEditorUpdateTraces}
             revision={this.state.editorRevision}
             advancedTraceTypeSelector={this.props.advancedTraceTypeSelector}
             locale={this.props.locale}
