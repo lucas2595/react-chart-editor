@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  DataSelector,
   AnnotationArrowRef,
   AnnotationRef,
   AnnotationAccordion,
@@ -13,7 +14,7 @@ import {
   Radio,
   TextEditor,
   PlotlySection,
-  NumericOrDate,
+  NumericOrDate
 } from '../components';
 
 const StyleNotesPanel = (props, {localize: _}) => (
@@ -31,7 +32,7 @@ const StyleNotesPanel = (props, {localize: _}) => (
         options={[
           {label: _('Left'), value: 'left'},
           {label: _('Center'), value: 'center'},
-          {label: _('Right'), value: 'right'},
+          {label: _('Right'), value: 'right'}
         ]}
       />
       <Dropdown
@@ -41,7 +42,7 @@ const StyleNotesPanel = (props, {localize: _}) => (
         options={[
           {label: _('Left'), value: 'left'},
           {label: _('Center'), value: 'center'},
-          {label: _('Right'), value: 'right'},
+          {label: _('Right'), value: 'right'}
         ]}
       />
     </PlotlySection>
@@ -51,11 +52,12 @@ const StyleNotesPanel = (props, {localize: _}) => (
         attr="showarrow"
         options={[
           {label: _('Show'), value: true},
-          {label: _('Hide'), value: false},
+          {label: _('Hide'), value: false}
         ]}
       />
       <Numeric label={_('Line Width')} attr="arrowwidth" units="px" />
       <ColorPicker label={_('Color')} attr="arrowcolor" />
+      <DataSelector label={_('Color')} attr="arrowcolor" />
       <ArrowSelector label={_('Arrowhead')} attr="arrowhead" />
       <Numeric label={_('Scale')} step={0.1} attr="arrowsize" units="px" />
       <AnnotationArrowRef label={_('X Offset')} attr="axref" />
@@ -72,7 +74,7 @@ const StyleNotesPanel = (props, {localize: _}) => (
           {label: _('Auto'), value: 'auto'},
           {label: _('Left'), value: 'left'},
           {label: _('Center'), value: 'center'},
-          {label: _('Right'), value: 'right'},
+          {label: _('Right'), value: 'right'}
         ]}
       />
       <PositioningNumeric label={_('Position')} attr="x" />
@@ -87,7 +89,7 @@ const StyleNotesPanel = (props, {localize: _}) => (
           {label: _('Auto'), value: 'auto'},
           {label: _('Top'), value: 'top'},
           {label: _('Middle'), value: 'middle'},
-          {label: _('Bottom'), value: 'bottom'},
+          {label: _('Bottom'), value: 'bottom'}
         ]}
       />
       <PositioningNumeric label={_('Position')} attr="y" />
@@ -97,7 +99,7 @@ const StyleNotesPanel = (props, {localize: _}) => (
 );
 
 StyleNotesPanel.contextTypes = {
-  localize: PropTypes.func,
+  localize: PropTypes.func
 };
 
 export default StyleNotesPanel;

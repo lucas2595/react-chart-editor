@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [1, 2, 3, 4, 5],
+      "xsrc": "col1",
+      "meta": {
+        "columnNames": {
+          "x": "col1",
+          "y": "col2"
+        }
+      },
+      "y": [12, 6, 9, 12, 9],
+      "ysrc": "col2"
+    }
+  ],
+  "layout": {
+    "xaxis": {
+      "range": [0.7637023900008445, 5.236297609999156],
+      "autorange": true,
+      "type": "linear"
+    },
+    "yaxis": {
+      "range": [5.631578947368421, 12.368421052631579],
+      "autorange": true,
+      "type": "linear"
+    },
+    "autosize": true
+  },
+  "frames": []
+}

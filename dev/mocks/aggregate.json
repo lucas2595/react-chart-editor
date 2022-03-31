@@ -20,7 +20,7 @@
       "mode": "markers",
       "transforms": [
         {
-          "enabled" :true,
+          "enabled": true,
           "type": "aggregate",
           "groups": [
             "Moe",
@@ -39,6 +39,42 @@
           "aggregations": [{"target": "y", "func": "avg", "enabled": true}]
         }
       ]
+    },
+    {
+      "type": "table",
+      "mode": "markers",
+      "stackgroup": null,
+      "header": {
+        "values": [""],
+        "valuessrc": "Retângulo",
+        "fill": {
+          "color": ["#ecc"],
+          "colorsrc": "Status do PZ01"
+        }
+      },
+      "meta": {
+        "columnNames": {
+          "header": {
+            "values": "Retângulo",
+            "fill": {
+              "color": "Status do PZ01"
+            }
+          },
+          "cells": {
+            "values": ""
+          }
+        }
+      },
+      "cells": {}
     }
-  ]
+  ],
+  "layout": {
+    "annotations": [
+      {
+        "text": "new text",
+        "arrowcolor": "rgb(162, 70, 70)",
+        "arrowcolorsrc": "Cor do PZ01"
+      }
+    ]
+  }
 }

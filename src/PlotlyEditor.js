@@ -81,6 +81,32 @@ class PlotlyEditor extends Component {
     );
   }
 
+  static getDerivedStateFromProps(
+    {data, layout, frames, dataSources, dataSourceOptions},
+    prevState
+  ) {
+    if (
+      JSON.stringify(data) !== JSON.stringify(prevState.graphDiv.data) ||
+      JSON.stringify(layout) !== JSON.stringify(prevState.graphDiv.layout) ||
+      JSON.stringify(frames) !== JSON.stringify(prevState.graphDiv.frames) ||
+      JSON.stringify(dataSources) !== JSON.stringify(prevState.dataSources) ||
+      JSON.stringify(dataSourceOptions) !== JSON.stringify(prevState.dataSourceOptions)
+    ) {
+      return {
+        ...prevState,
+        dataSources,
+        dataSourceOptions,
+        graphDiv: {
+          ...prevState.graphDiv,
+          data,
+          layout,
+          frames
+        }
+      };
+    }
+    return null;
+  }
+
   getChartingData = (columnName) => {
     if (!this.state.fetchedColumns.includes(columnName)) {
       setTimeout(
@@ -135,7 +161,10 @@ class PlotlyEditor extends Component {
     }
   };
 
-  handleEditorUpdate(update) {
+  handleEditorUpdate(update, ...args) {
+    if (this.props.onUpdate) {
+      return this.props.onUpdate(update, ...args);
+    }
     this.setState(({plotRevision: x}) => ({plotRevision: x + 1}));
     if (update) {
       for (const trace of update) {

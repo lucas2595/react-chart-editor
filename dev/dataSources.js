@@ -1,6 +1,11 @@
 /* eslint-disable */
 
 export default {
+  Retângulo: [''],
+  col1: [1, 2, 3, 4, 5],
+  col2: [8, 8, 8, 8, 8],
+  'Status do PZ01': ['#cce'],
+  'Cor do PZ01': 'rgb(162, 70, 70)',
   'tips.total_bill': [
     16.99,
     10.34,
@@ -245,7 +250,7 @@ export default {
     27.18,
     22.67,
     17.82,
-    18.78,
+    18.78
   ],
   'tips.tip': [
     1.01,
@@ -491,7 +496,7 @@ export default {
     2.0,
     2.0,
     1.75,
-    3.0,
+    3.0
   ],
   'tips.sex': [
     'Female',
@@ -737,7 +742,7 @@ export default {
     'Female',
     'Male',
     'Male',
-    'Female',
+    'Female'
   ],
   'tips.smoker': [
     'No',
@@ -983,7 +988,7 @@ export default {
     'Yes',
     'Yes',
     'No',
-    'No',
+    'No'
   ],
   'tips.day': [
     'Sun',
@@ -1229,7 +1234,7 @@ export default {
     'Sat',
     'Sat',
     'Sat',
-    'Thur',
+    'Thur'
   ],
   'tips.time': [
     'Dinner',
@@ -1475,7 +1480,7 @@ export default {
     'Dinner',
     'Dinner',
     'Dinner',
-    'Dinner',
+    'Dinner'
   ],
   'tips.size': [
     2,
@@ -1721,7 +1726,7 @@ export default {
     2,
     2,
     2,
-    2,
+    2
   ],
 
   ints: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
@@ -1742,7 +1747,7 @@ export default {
     'IN',
     'IA',
     'KS',
-    'KY',
+    'KY'
   ],
   'jagged ints': [2, 1, 3, 5, 4, 6],
   'toggle ints': [1, -1, 1, -1, 1, -1],
@@ -1760,7 +1765,7 @@ export default {
     'Armenia',
     'Australia',
     'Austria',
-    'Azerbaijan',
+    'Azerbaijan'
   ],
   'countries iso': ['AGO', 'ALB', 'ARE', 'ARG', 'ARM', 'AUS', 'AUT', 'AZE'],
   states: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA'],
@@ -1782,7 +1787,7 @@ export default {
     'total',
     'relative',
     'relative',
-    'total',
+    'total'
   ],
   coffeeIds: [
     'Aromas',
@@ -1880,7 +1885,7 @@ export default {
     'Smokey-Tarry',
     'Smokey-Pipe Tobacco',
     'Ashy-Burnt',
-    'Ashy-Charred',
+    'Ashy-Charred'
   ],
   coffeeLabels: [
     'Aromas',
@@ -1978,7 +1983,7 @@ export default {
     'Tarry',
     'Pipe Tobacco',
     'Burnt',
-    'Charred',
+    'Charred'
   ],
   coffeeParents: [
     '',
@@ -2076,7 +2081,7 @@ export default {
     'Carbony-Smokey',
     'Carbony-Smokey',
     'Carbony-Ashy',
-    'Carbony-Ashy',
+    'Carbony-Ashy'
   ],
   energyNodelabel: [
     "Agricultural 'waste'",
@@ -2126,7 +2131,7 @@ export default {
     'Tidal',
     'UK land based bioenergy',
     'Wave',
-    'Wind',
+    'Wind'
   ],
   energyLinkLabel: [
     'stream 1',
@@ -2199,7 +2204,7 @@ export default {
     '',
     '',
     '',
-    '',
+    ''
   ],
   energyLinkSource: [
     0,
@@ -2272,7 +2277,7 @@ export default {
     46,
     47,
     35,
-    35,
+    35
   ],
   energyLinkTarget: [
     1,
@@ -2345,7 +2350,7 @@ export default {
     15,
     15,
     26,
-    26,
+    26
   ],
   energyLinkValue: [
     124.729,
@@ -2418,7 +2423,7 @@ export default {
     19.013,
     289.366,
     100,
-    100,
+    100
   ],
   energyLinkColor: [
     'rgba(0,0,96,0.2)',
@@ -2491,6 +2496,6 @@ export default {
     'rgba(0,0,96,0.2)',
     'rgba(0,0,96,0.2)',
     'lightgreen',
-    'goldenrod',
-  ],
+    'goldenrod'
+  ]
 };
