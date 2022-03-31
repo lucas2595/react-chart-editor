@@ -49,7 +49,11 @@ export default function dereference(
       dereferencedData = dereferencedData[0];
     }
 
-    if (!Array.isArray(dereferencedData)) {
+    if (
+      !Array.isArray(dereferencedData) &&
+      !srcPath.includes('annotations') &&
+      !srcPath.includes('shapes')
+    ) {
       return;
     }
 
@@ -74,10 +78,13 @@ export default function dereference(
   if (containerIsData) {
     walkObject(container, replacer, {
       walkArraysMatchingKeys: ['data', 'transforms'],
-      pathType: 'nestedProperty',
+      pathType: 'nestedProperty'
     });
   } else {
     // container is layout
-    walkObject(container, replacer, {pathType: 'nestedProperty'});
+    walkObject(container, replacer, {
+      walkArraysMatchingKeys: ['annotations', 'shapes'],
+      pathType: 'nestedProperty'
+    });
   }
 }

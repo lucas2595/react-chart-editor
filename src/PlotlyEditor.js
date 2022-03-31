@@ -139,6 +139,7 @@ class PlotlyEditor extends Component {
       this.setState(({dataSources, graphDiv, plotRevision, fetchedColumns}) => {
         const newDataSources = {...dataSources, [columnName]: data};
         dereference(graphDiv.data, newDataSources);
+        dereference(graphDiv.layout, newDataSources);
         return {
           dataSources: newDataSources,
           graphDiv,
@@ -162,8 +163,9 @@ class PlotlyEditor extends Component {
   };
 
   handleEditorUpdate(update, ...args) {
+    let response;
     if (this.props.onUpdate) {
-      return this.props.onUpdate(update, ...args);
+      response = this.props.onUpdate(update, ...args);
     }
     this.setState(({plotRevision: x}) => ({plotRevision: x + 1}));
     if (update) {
@@ -171,6 +173,7 @@ class PlotlyEditor extends Component {
         this.handleEditorUpdateTraces(trace);
       }
     }
+    return response;
   }
 
   handleRender(fig, graphDiv) {

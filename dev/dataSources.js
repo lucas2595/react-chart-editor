@@ -5,7 +5,7 @@ export default {
   col1: [1, 2, 3, 4, 5],
   col2: [8, 8, 8, 8, 8],
   'Status do PZ01': ['#cce'],
-  'Cor do PZ01': 'rgb(162, 70, 70)',
+  'Cor do PZ01': 'rgb(127, 0, 0)',
   'tips.total_bill': [
     16.99,
     10.34,

@@ -1,80 +1,35 @@
 {
-  "data": [
-    {
-      "type": "scatter",
-      "x": [
-        "Moe",
-        "Larry",
-        "Curly",
-        "Moe",
-        "Larry",
-        "Curly",
-        "Moe",
-        "Larry",
-        "Curly",
-        "Moe",
-        "Larry",
-        "Curly"
-      ],
-      "y": [1, 6, 2, 8, 2, 9, 4, 5, 1, 5, 2, 8],
-      "mode": "markers",
-      "transforms": [
-        {
-          "enabled": true,
-          "type": "aggregate",
-          "groups": [
-            "Moe",
-            "Larry",
-            "Curly",
-            "Moe",
-            "Larry",
-            "Curly",
-            "Moe",
-            "Larry",
-            "Curly",
-            "Moe",
-            "Larry",
-            "Curly"
-          ],
-          "aggregations": [{"target": "y", "func": "avg", "enabled": true}]
-        }
-      ]
-    },
-    {
-      "type": "table",
-      "mode": "markers",
-      "stackgroup": null,
-      "header": {
-        "values": [""],
-        "valuessrc": "Retângulo",
-        "fill": {
-          "color": ["#ecc"],
-          "colorsrc": "Status do PZ01"
-        }
-      },
-      "meta": {
-        "columnNames": {
-          "header": {
-            "values": "Retângulo",
-            "fill": {
-              "color": "Status do PZ01"
-            }
-          },
-          "cells": {
-            "values": ""
-          }
-        }
-      },
-      "cells": {}
-    }
-  ],
+  "data": [],
   "layout": {
     "annotations": [
       {
-        "text": "new text",
-        "arrowcolor": "rgb(162, 70, 70)",
-        "arrowcolorsrc": "Cor do PZ01"
+        "text": "Teste",
+        "arrowcolor": "rgb(0, 127, 0)",
+        "arrowcolorsrc": "Cor do PZ01",
+        "font": {
+          "color": "rgb(0, 127, 0)",
+          "colorsrc": "Cor do PZ01"
+        }
+      }
+    ],
+    "xaxis": {
+      "range": [-1, 6],
+      "autorange": true
+    },
+    "yaxis": {
+      "range": [-1, 4],
+      "autorange": true
+    },
+    "shapes": [
+      {
+        "line": {
+          "color": "#444444"
+        },
+        "fillcolor": "rgb(0, 127, 0)",
+        "opacity": 0.3,
+        "fillcolorsrc": "Cor do PZ01"
       }
     ]
-  }
+  },
+  "frames": []
 }

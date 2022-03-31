@@ -23,7 +23,7 @@ const StyleNotesPanel = (props, {localize: _}) => (
       <TextEditor attr="text" />
       <FontSelector label={_('Typeface')} attr="font.family" />
       <Numeric label={_('Font Size')} attr="font.size" units="px" />
-      <ColorPicker label={_('Font Color')} attr="font.color" />
+      <DataSelector label={_('Font Color')} attr="font.color" />
       <Numeric label={_('Angle')} attr="textangle" units="°" />
       <Dropdown
         label={_('Horizontal Alignment')}
@@ -57,7 +57,6 @@ const StyleNotesPanel = (props, {localize: _}) => (
       />
       <Numeric label={_('Line Width')} attr="arrowwidth" units="px" />
       <ColorPicker label={_('Color')} attr="arrowcolor" />
-      <DataSelector label={_('Color')} attr="arrowcolor" />
       <ArrowSelector label={_('Arrowhead')} attr="arrowhead" />
       <Numeric label={_('Scale')} step={0.1} attr="arrowsize" units="px" />
       <AnnotationArrowRef label={_('X Offset')} attr="axref" />

@@ -48,11 +48,8 @@ const StyleShapesPanel = (props, {localize: _}) => (
       <LineDashSelector label={_('Type')} attr="line.dash" />
     </PlotlySection>
     <PlotlySection name={_('Fill')}>
-      <ColorPicker label={_('Color')} attr="fillcolor" />
+      <DataSelector label={_('Color')} attr="fillcolor" />
       <NumericFraction label={_('Opacity')} attr="opacity" />
-    </PlotlySection>
-    <PlotlySection name={_('Something')}>
-      <DataSelector label={_('Values')} attr="fillcolor" />
     </PlotlySection>
   </ShapeAccordion>
 );
