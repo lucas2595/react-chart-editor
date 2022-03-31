@@ -13,6 +13,7 @@ class PlotlyEditor extends Component {
       editorRevision: 0,
       plotRevision: 0,
       dataSources: {},
+      fetchedColumns: [],
       loading: false
     };
     this.PlotComponent = createPlotComponent(props.plotly);
@@ -22,19 +23,80 @@ class PlotlyEditor extends Component {
   }
 
   componentDidMount() {
-    this.setChartingDataOptions(['col1', 'col2', 'col3', 'col4', 'col5']); // add the options
-  }
+    this.setChartingDataOptions([
+      'col1',
+      'col2',
+      'col3',
+      'col4',
+      'col5',
+      'headers',
+      'columns',
+      'fillcolor',
+      'headerColor'
+    ]); // add the options
 
-  getChartingData = (columnName) => {
-    console.log(columnName);
     setTimeout(
       () =>
         this.setChartingData({
-          columnName,
-          data: [10 * Math.random(), 10 * Math.random(), 10 * Math.random()]
+          columnName: 'headers',
+          data: ['']
         }),
-      2000
+      3000
     );
+    setTimeout(
+      () =>
+        this.setChartingData({
+          columnName: 'headerColor',
+          data: ['#eecccc']
+        }),
+      3100
+    );
+    setTimeout(
+      () =>
+        this.setChartingData({
+          columnName: 'columns',
+          data: [[10.3]]
+        }),
+      3500
+    );
+    setTimeout(
+      () =>
+        this.setChartingData({
+          columnName: 'fillcolor',
+          data: 'rgba(0,255,0,0)'
+        }),
+      3600
+    );
+    setTimeout(
+      () =>
+        this.setChartingData({
+          columnName: 'parent',
+          data: ['', 'Eve', 'Eve', 'Seth', 'Seth', 'Eve', 'Eve', 'Awan', 'Eve']
+        }),
+      4000
+    );
+    setTimeout(
+      () => this.setChartingData({columnName: 'value', data: [10, 14, 12, 10, 2, 6, 6, 4, 4]}),
+      5000
+    );
+  }
+
+  getChartingData = (columnName) => {
+    if (!this.state.fetchedColumns.includes(columnName)) {
+      setTimeout(
+        () =>
+          this.setChartingData({
+            columnName,
+            data: [
+              10 * Math.random(),
+              10 * (Math.random() + 1),
+              10 * (Math.random() + 2),
+              10 * (Math.random() + 3)
+            ]
+          }),
+        2000
+      );
+    }
   };
 
   setChartingDataOptions(columnNames) {
@@ -48,10 +110,15 @@ class PlotlyEditor extends Component {
 
   setChartingData({columnName, data}) {
     if (Array.isArray(data) && data.length) {
-      this.setState(({dataSources, graphDiv, plotRevision}) => {
+      this.setState(({dataSources, graphDiv, plotRevision, fetchedColumns}) => {
         const newDataSources = {...dataSources, [columnName]: data};
         dereference(graphDiv.data, newDataSources);
-        return {dataSources: newDataSources, graphDiv, plotRevision: plotRevision + 1};
+        return {
+          dataSources: newDataSources,
+          graphDiv,
+          plotRevision: plotRevision + 1,
+          fetchedColumns: [...fetchedColumns, columnName]
+        };
       });
     }
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  DataSelector,
   ShapeAccordion,
   Radio,
   PlotlySection,
@@ -9,7 +10,7 @@ import {
   Numeric,
   NumericFraction,
   ColorPicker,
-  LineDashSelector,
+  LineDashSelector
 } from '../components';
 
 const StyleShapesPanel = (props, {localize: _}) => (
@@ -18,7 +19,7 @@ const StyleShapesPanel = (props, {localize: _}) => (
       attr="visible"
       options={[
         {label: _('Show'), value: true},
-        {label: _('Hide'), value: false},
+        {label: _('Hide'), value: false}
       ]}
     />
     <Radio
@@ -26,7 +27,7 @@ const StyleShapesPanel = (props, {localize: _}) => (
       options={[
         {label: _('Line'), value: 'line'},
         {label: _('Rectangle'), value: 'rect'},
-        {label: _('Ellipse'), value: 'circle'},
+        {label: _('Ellipse'), value: 'circle'}
       ]}
     />
 
@@ -50,11 +51,14 @@ const StyleShapesPanel = (props, {localize: _}) => (
       <ColorPicker label={_('Color')} attr="fillcolor" />
       <NumericFraction label={_('Opacity')} attr="opacity" />
     </PlotlySection>
+    <PlotlySection name={_('Something')}>
+      <DataSelector label={_('Values')} attr="fillcolor" />
+    </PlotlySection>
   </ShapeAccordion>
 );
 
 StyleShapesPanel.contextTypes = {
-  localize: PropTypes.func,
+  localize: PropTypes.func
 };
 
 export default StyleShapesPanel;
