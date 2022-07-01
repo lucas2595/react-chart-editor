@@ -21,6 +21,7 @@ const StyleNotesPanel = (props, {localize: _}) => (
   <AnnotationAccordion canAdd canReorder>
     <PlotlySection name={_('Note Text')} attr="text">
       <TextEditor attr="text" />
+      <DataSelector label={_('Text from data')} attr="text" />
       <FontSelector label={_('Typeface')} attr="font.family" />
       <Numeric label={_('Font Size')} attr="font.size" units="px" />
       <DataSelector label={_('Font Color')} attr="font.color" />
