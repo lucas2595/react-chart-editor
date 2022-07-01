@@ -29,6 +29,7 @@ class PlotlyEditor extends Component {
       'col3',
       'col4',
       'col5',
+      'col6',
       'headers',
       'columns',
       'fillcolor',
